@@ -7,6 +7,8 @@ describe("dex_raise", () => {
   // Load admin key from base58
   const admin = Keypair.fromSecretKey(bs58.decode("4r7H961ANWxJHhGoCgvBgPNPNZdmnRczVfzdiyr7p7pPSGxmocJmzMSSbuarRVkN8rQfn7WRBPZrfsqKuRYpMEho"));
 
+  const feeWallet = new PublicKey("EwP2v1nmR5j5YoqeXPHkhNBJaGBRJs2HLD6FVwr9q7wN")
+
   // Set admin as provider
   anchor.setProvider(
     new anchor.AnchorProvider(anchor.AnchorProvider.env().connection, new anchor.Wallet(admin), {
@@ -23,11 +25,10 @@ describe("dex_raise", () => {
 
   it("Is initialized!", async () => {
     const tx = await program.methods
-      .initialize(100, admin.publicKey)
+      .initialize(feeWallet)
       .accountsStrict({
         config: configPDA,
         admin: admin.publicKey,
-        treasury: admin.publicKey,
         systemProgram: SystemProgram.programId,
       })
       .signers([admin]) 
