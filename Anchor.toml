@@ -11,7 +11,7 @@ dex_raise = "BTorkvs6ZfddcEqcZqqd9EAT8thUBB2gE1ikmLH7m8i4"
 dex_raise = "6h6tptXmE1g9F6pez3yaZYxdvdkBQRFnw3VH1Fcs3uze"
 
 [programs.mainnet]
-dex_raise = "BTorkvs6ZfddcEqcZqqd9EAT8thUBB2gE1ikmLH7m8i4"
+dex_raise = "6h6tptXmE1g9F6pez3yaZYxdvdkBQRFnw3VH1Fcs3uze"
 
 [registry]
 url = "https://api.apr.dev"
