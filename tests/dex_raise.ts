@@ -5,7 +5,7 @@ import { Keypair, PublicKey, SystemProgram } from "@solana/web3.js";
 import bs58 from "bs58"
 describe("dex_raise", () => {
   // Load admin key from base58
-  const admin = Keypair.fromSecretKey(bs58.decode("4r7H961ANWxJHhGoCgvBgPNPNZdmnRczVfzdiyr7p7pPSGxmocJmzMSSbuarRVkN8rQfn7WRBPZrfsqKuRYpMEho"));
+  const admin = Keypair.fromSecretKey(bs58.decode(""));
 
   const feeWallet = new PublicKey("EwP2v1nmR5j5YoqeXPHkhNBJaGBRJs2HLD6FVwr9q7wN")
 
