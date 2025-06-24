@@ -57,7 +57,7 @@ pub mod dexscreener_escrow{
         
         // Check if the campaign is expired and not funded. This is a common refund scenario.
         let now = Clock::get()?.unix_timestamp;
-        let is_expired = (now - campaign.created_at) > (1 * 60 * 60); // 24 hours
+        let is_expired = (now - campaign.created_at) > (60); // 24 hours
         
         require!(is_expired && !campaign.is_funded, EscrowError::RefundNotAvailable);
         require!(!campaign.is_withdrawn, EscrowError::CampaignFundsWithdrawn);
@@ -107,7 +107,7 @@ pub mod dexscreener_escrow{
     pub fn close_expired_campaign(ctx: Context<CloseExpiredCampaign>) -> Result<()> {
         let campaign = &ctx.accounts.campaign;
         let now = Clock::get()?.unix_timestamp;
-        let is_expired = (now - campaign.created_at) > ( 1 * 60 * 60);
+        let is_expired = (now - campaign.created_at) > ( 1 * 60);
 
         require!(is_expired && !campaign.is_funded, EscrowError::CampaignNotExpiredOrFunded);
         // The `close` constraint will automatically transfer remaining lamports to the admin
